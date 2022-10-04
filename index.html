@@ -1,0 +1,1353 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Infinity.Attends</title>
+        <meta name="viewport" content="width=device-width, initial-scale=0.95, maximum-scale=1.0, user-scalable=0">
+        <link rel="icon" href="favicon.ico" type="image/x-icon" />
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+        <link href="//fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet" />
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" integrity="sha512-aOG0c6nPNzGk+5zjwyJaoRUgCdOrfSDhmMID2u4+OIslr0GjpLKo7Xm0Ao3xmpM4T8AmIouRkqwj1nrdVsLKEQ==" crossorigin="anonymous" />
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" integrity="sha512-uto9mlQzrs59VwILcLiRYeLKPPbS/bT71da/OEBYEwcdNUk8jYIy+D176RYoop1Da+f9mvkYrmj5MCLZWEtQuA==" crossorigin="anonymous"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js" integrity="sha512-nOQuvD9nKirvxDdvQ9OMqe2dgapbPB7vYAMrzJihw5m+aNcf0dX53m6YxM4LgA9u8e9eg9QX+/+mPu8kCNpV2A==" crossorigin="anonymous"></script>
+        <style>
+          @import url("//fonts.googleapis.com/css2?family=Roboto+Mono&display=swap");
+
+          body {
+              background-image: url("/assets/img/1.jpg");
+              background-repeat: no-repeat;
+              background-size: cover;
+              background-attachment: fixed;
+              font-family: 'Roboto Mono', monospace !important;
+          }
+
+          .blurred-bg::before {
+              content: '';
+              /* url(https://highergroundcandles.com/assets/img/blur/1.jpg) */
+              background-image: url("/assets/img/blur/1.jpg");
+              background-repeat: no-repeat !important;
+              -moz-background-size: cover !important;
+              -o-background-size: cover !important;
+              -webkit-background-size: cover !important;
+              background-size: cover !important;
+              background-attachment: fixed !important;
+              background-size: cover !important;
+              left: 0;
+              top: 0;
+              position: absolute;
+              width: 100%;
+              height: 100%;
+              z-index: -1;
+              border-radius: 10px;
+          }
+
+          .blurred-bg.tinted {
+              /* background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuNSIgeTE9IjEuMCIgeDI9IjAuNSIgeTI9IjAuMCI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIgc3RvcC1vcGFjaXR5PSIwLjEiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNmZmZmZmYiIHN0b3Atb3BhY2l0eT0iMC4xIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmFkKSIgLz48L3N2Zz4g'), url("https://highergroundcandles.com/assets/img/blur/1.jpg"); */
+              background-size: 100%;
+              /* background-image: -moz-linear-gradient(90deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1)), url("https://highergroundcandles.com/assets/img/blur/1.jpg"); */
+              /* background-image: -webkit-linear-gradient(90deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1)), url("https://highergroundcandles.com/assets/img/blur/1.jpg"); */
+              /* background-image: linear-gradient(0deg, rgb(239 195 113 / 50%), rgb(239 195 113 / 0%)), url(https://highergroundcandles.com/assets/img/blur/1.jpg); */
+              /* background-image: radial-gradient(ellipse farthest-corner at right bottom, #FEDB37A0 0%, #FDB931A0 8%, #9f7928A0 30%, #8A6E2FA0 40%, transparent 80%), radial-gradient(ellipse farthest-corner at left top, #FFFFFFA0 0%, #FFFFACA0 8%, #D1B464A0 25%, #5d4a1fA0 62.5%, #5d4a1fA0 100%);
+              background-image: radial-gradient(ellipse farthest-corner at right bottom, #FEDB37F0 0%, #FDB931F0 8%, #9f792850 30%, #8A6E2FF0 40%, transparent 80%), radial-gradient(ellipse farthest-corner at left top, #FFFFFF 0%, #FFFFACD0 8%, #D1B46450 25%, #5d4a1f50 62.5%, #5d4a1f50 100%) */
+              box-shadow: inset 0 0 .625em .063em rgba(255,255,255,.1),0 0 0 .063em rgba(255,255,255,.2),0 0 1em .1em rgba(0,0,0,.6)
+          }
+
+          .blurred-bg.shaded {
+              background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuNSIgeTE9IjEuMCIgeDI9IjAuNSIgeTI9IjAuMCI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzAwMDAwMCIgc3RvcC1vcGFjaXR5PSIwLjIiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMwMDAwMDAiIHN0b3Atb3BhY2l0eT0iMC4yIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmFkKSIgLz48L3N2Zz4g'), url("/assets/img/blur/1.jpg");
+              background-size: 100%;
+              background-image: -moz-linear-gradient(90deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("/assets/img/blur/1.jpg");
+              background-image: -webkit-linear-gradient(90deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("/assets/img/blur/1.jpg");
+              background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("/assets/img/blur/1.jpg");
+          }
+
+          .box-wrap {
+              max-width: 90%;
+              width: 40em;
+              min-width: 20em;
+              margin: 1em auto;
+              position: relative;
+          }
+
+          .box {
+              /* height: 380px; */
+              /* left: -webkit-calc(50% - 350px); */
+              /* top: 20%; */
+              position: absolute;
+              border-radius: 10px;
+              -moz-box-shadow: 0 20px 30px rgba(0, 0, 0, 0.6);
+              -webkit-box-shadow: 0 20px 30px rgba(0, 0, 0, 0.6);
+              box-shadow: 0 20px 30px rgba(0, 0, 0, 0.6);
+              border: 1px solid rgba(255, 255, 255, 0.3);
+              padding: 20px;
+              text-align: center;
+              -moz-box-sizing: border-box;
+              -webkit-box-sizing: border-box;
+              box-sizing: border-box;
+              text-shadow: 0 1px 1px rgba(0, 0, 0, 0.4);
+              display: flex;
+              -webkit-transition: all 125ms ease;
+              -moz-transition: all 125ms ease;
+              -ms-transition: all 125ms ease;
+              -o-transition: all 125ms ease;
+              transition: all 125ms ease;
+              -moz-box-shadow: 0 20px 50px rgba(0, 0, 0, 0.9);
+              -webkit-box-shadow: 0 20px 50px rgba(0, 0, 0, 0.9);
+              box-shadow: 0 20px 50px rgba(0, 0, 0, 0.9);
+          }
+
+          .attends {
+              -webkit-transition: all 125ms ease;
+              -moz-transition: all 125ms ease;
+              -ms-transition: all 125ms ease;
+              -o-transition: all 125ms ease;
+              transition: all 125ms ease;
+              position: absolute;
+              width: 100%;
+              height: 100%;
+              left: 0;
+              top: 0;
+          }
+
+          .thidden {
+              -moz-opacity: 0;
+              opacity: 0;
+              -moz-transform: scale(0.01);
+              -webkit-transform: scale(0.01);
+              -o-transform: scale(0.01);
+              -ms-transform: scale(0.01);
+              transform: scale(0.01);
+          }
+
+          .box.show {
+              /* -moz-opacity: 1; */
+              /* opacity: 1; */
+              -moz-transform: scale(1);
+              -webkit-transform: scale(1);
+              -o-transform: scale(1);
+              -ms-transform: scale(1);
+              transform: scale(1);
+          }
+
+          /* .box:active {
+              cursor: move;
+              -moz-box-shadow: 0 20px 50px rgba(0, 0, 0, 0.9);
+              -webkit-box-shadow: 0 20px 50px rgba(0, 0, 0, 0.9);
+              box-shadow: 0 20px 50px rgba(0, 0, 0, 0.9);
+          } */
+          .box .content {
+              margin: auto;
+          }
+
+          h1,
+          h2,
+          a,
+          p {
+              color: white;
+              font-weight: 100;
+          }
+
+          .tinted h1,
+          .tinted h2,
+          .tinted a,
+          .tinted p {
+              color: white;
+              text-shadow: 0 0 0.1em #000;
+          }
+
+          h2 {
+              font-size: 14px;
+          }
+
+          p {
+              margin: 20px;
+          }
+
+          p.related {
+              text-transform: uppercase;
+              font-weight: 700;
+              color: #444;
+          }
+
+          p.related a {
+              font-weight: 700;
+              text-decoration: none;
+          }
+
+          p.related a:hover {
+              text-decoration: underline;
+          }
+
+          .heading {
+              text-shadow: 0 0 0.1em #000!important;
+              margin: 0 0 1em 0;
+              font-size: 3em;
+              font-weight: 800;
+              padding: 0 1em;
+          }
+
+
+          #portal .heading {
+              margin: 0 0 0.3em 0;
+          }
+
+          .form-group {
+              margin-top: 20px;
+          }
+
+          .input-group-addon.primary {
+              color: rgb(255, 255, 255);
+              background-color: rgb(50, 118, 177);
+              border-color: rgb(40, 94, 142);
+          }
+
+          .input-group-addon.success {
+              color: rgb(255, 255, 255);
+              background-color: rgb(92, 184, 92);
+              border-color: rgb(76, 174, 76);
+          }
+
+          .input-group-addon.info {
+              color: rgb(255, 255, 255);
+              background-color: rgb(57, 179, 215);
+              border-color: rgb(38, 154, 188);
+          }
+
+          .input-group-addon.warning {
+              color: rgb(255, 255, 255);
+              background-color: rgb(240, 173, 78);
+              border-color: rgb(238, 162, 54);
+          }
+
+          .input-group-addon.danger {
+              color: rgb(255, 255, 255);
+              background-color: rgb(217, 83, 79);
+              border-color: rgb(212, 63, 58);
+          }
+
+          .unselectable {
+              -moz-user-select: none;
+              -webkit-user-select: none;
+              -ms-user-select: none;
+              user-select: none;
+          }
+
+          .h-divider {
+              margin: auto;
+              margin-top: 60px;
+              width: 80%;
+              position: relative;
+          }
+
+          #portal .h-divider {
+              margin-top: unset;
+          }
+
+
+          .h-divider .shadow {
+              overflow: hidden;
+              height: 20px;
+          }
+
+          .h-divider .shadow:after {
+              content: '';
+              display: block;
+              margin: -25px auto 0;
+              width: 100%;
+              height: 25px;
+              border-radius: 125px/12px;
+              box-shadow: 0 0 8px black;
+          }
+
+          .h-divider .text {
+              width: 100%;
+              bottom: 1.5em;
+              position: absolute;
+              /* width: 160px; */
+              /* height: 60px; */
+              /* padding: 10px;
+              position: absolute;
+              bottom: 0;
+              margin-bottom: -33px;
+              left: 50%;
+              margin-left: -80px;
+              border-radius: 100%; */
+              /*   box-shadow: 0 2px 4px #999; */
+              /*   background: white; */
+          }
+
+          .h-divider .text i {
+
+              /* position: absolute;
+              top: -4px;
+              bottom: 4px;
+              left: 4px;
+              right: 4px; */
+              /* border-radius: 100%; */
+              /* border: 1px dashed #aaa; */
+              /* text-align: center; */
+              /* line-height: 50px; */
+              font-style: normal;
+              color: #fff;
+              text-shadow: 0 0 0.1em #000;
+              font-size: 1.5em;
+              font-weight: 600;
+          }
+
+          @keyframes showContainer {
+              0% {
+                  visibility: hidden;
+                  opacity: 0
+              }
+
+              to {
+                  visibility: visible;
+                  opacity: 1
+              }
+          }
+
+          @keyframes hideContainer {
+              0% {
+                  visibility: visible;
+                  opacity: 1
+              }
+
+              to {
+                  visibility: hidden;
+                  opacity: 0
+              }
+          }
+
+          @keyframes frameShow {
+              0% {
+                  transform: scale(.25);
+                  pointer-events: none
+              }
+
+              to {
+                  transform: none;
+                  pointer-events: all
+              }
+          }
+
+          @keyframes frameHide {
+              0% {
+                  opacity: 1;
+                  transform: none;
+                  pointer-events: all
+              }
+
+              to {
+                  opacity: 0;
+                  pointer-events: none;
+                  transform: scale(.25)
+              }
+          }
+
+          .portal-wrap[visible=false],
+          .mbrlog-wrap[visible=false],
+          .mbrreg-wrap[visible=false],
+          .portal-wrap[visible=true],
+          .mbrlog-wrap[visible=true],
+          .mbrreg-wrap[visible=true] {
+              animation-fill-mode: both
+          }
+
+          .portal-wrap[visible=true],
+          .mbrlog-wrap[visible=true],
+          .mbrreg-wrap[visible=true] {
+              animation: frameShow 200ms ease-in-out
+          }
+
+          .portal-wrap[visible=false],
+          .mbrlog-wrap[visible=false],
+          .mbrreg-wrap[visible=false] {
+              animation: frameHide 200ms ease-in-out
+          }
+
+          .regpwerr {
+              color: #ff9b61;
+              font-size: 1.3em;
+              text-shadow: 0 0 2px #ff0000;
+              font-weight: 600;
+          }
+          #myVideo {
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            min-width: 100%;
+            min-height: 100%;
+            display: none;
+          }
+
+          @supports (backdrop-filter:blur(10px)) or (-moz-backdrop-filter:blur(10px)) or (-webkit-backdrop-filter:blur(10px)) or (-o-backdrop-filter:blur(10px)) or (-ms-backdrop-filter:blur(10px)){
+              .blurred-bg::before {
+                  background-image: unset;
+                  z-index: 0;
+                  -moz-backdrop-filter: blur(10px);
+                  -webkit-backdrop-filter: blur(10px);
+                  -o-backdrop-filter: blur(10px);
+                  -ms-backdrop-filter: blur(10px);
+                  backdrop-filter: blur(10px);
+              }
+              .box .content {
+                  z-index:1;
+              }
+              #myVideo {
+                display: block;
+              }
+          }
+          input[type=checkbox]
+          {
+            /* Double-sized Checkboxes */
+            -ms-transform: scale(2); /* IE */
+            -moz-transform: scale(2); /* FF */
+            -webkit-transform: scale(2); /* Safari and Chrome */
+            -o-transform: scale(2); /* Opera */
+            padding: 10px;
+          }
+
+          .pl-table .row {
+            margin: 5px 0;
+            padding: 0 20px;
+            -webkit-box-align: center;
+                    align-items: center;
+          }
+          .pl-table .col {
+            padding: 0 10px;
+            /* overflow: hidden; */
+            text-overflow: ellipsis;
+          }
+          .pl-table .pl-thead {
+              /* color: #979797; */
+              /* font-weight: bold; */
+              text-transform: uppercase;
+              /* font-size: 11px; */
+              /* margin: 15px 0; */
+              margin: 1em;
+          }
+          .pl-table .pl-thead.tall {
+            /* background-color: #263338; */
+            margin: 0;
+            padding: 5px 0;
+            color: rgba(255, 255, 255, 0.7);
+            text-transform: initial;
+          }
+          .pl-table .pl-thead.tall .col {
+            border-right: 1px solid rgba(255, 255, 255, 0.2);
+            text-align: center;
+            align-self: stretch;
+          }
+          .pl-table .pl-thead.tall .col:last-child {
+            border: none;
+          }
+          .pl-table .pl-thead.tall .col .large {
+            /* font-size: 21px; */
+            color: #ffffff;
+          }
+          .pl-table .pl-tbody .row {
+            /* background-color: #ffffff; */
+            /* padding-top: 1em; */
+            /* padding-bottom: 1em; */
+            padding:0;
+            /* color: #979797; */
+            /* font-size: 11px; */
+          }
+          .pl-table .pl-tbody.scroll {
+            max-height: 100px;
+            overflow-x: scroll;
+          }
+          .pl-tcol {
+              height: 3em;
+          }
+          .vertical {
+              border-left: 6px solid black;
+              height: 300px;
+              position:absolute;
+              left: 50%;
+          }
+        </style>
+        <style>
+          @keyframes rotate {
+              to {
+                  background-position: 1.1em 0
+              }
+          }
+
+          .InfLoader,
+          body {
+              width: 100%;
+              height: 100%;
+              background-color: #000
+          }
+
+          body {
+              padding: 0;
+              margin: 0;
+              font-size: 1em;
+              font-family: 'Inconsolata', monospace;
+              color: #fff;
+              text-shadow: 0 0 0.4em #fff
+          }
+
+          .InfLoader {
+              /* pointer-events: none; */
+              position: absolute;
+              left: 0;
+              top: 0;
+              display: flex !important;
+              align-items: center;
+              justify-content: center;
+              z-index: 9999;
+              flex-direction: column;
+              display: block;
+              transition: opacity 1s ease-in-out
+          }
+
+          .InfLoader-Logo {
+              transition: opacity .25s ease-in-out, max-height .25s ease-in-out, background-image .25s ease-in-out;
+              width: 12em;
+              height: 12em;
+              background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-256 -256 512 512'><defs><filter id='a' width='400%' height='400%' x='-75%' y='-75%'><feGaussianBlur in='SourceGraphic' result='z' stdDeviation='8'/><feMerge><feMergeNode in='z'/></feMerge></filter><filter id='b' width='400%' height='400%' x='-75%' y='-75%'><feMorphology in='SourceAlpha' operator='dilate' radius='1' result='y'/><feGaussianBlur in='y' result='x' stdDeviation='2'/><feFlood flood-color='%2330BAFF' result='w'/><feComposite in='w' in2='x' operator='in' result='v'/><feMorphology in='SourceAlpha' operator='dilate' radius='2' result='u'/><feGaussianBlur in='u' result='x' stdDeviation='12'/><feFlood flood-color='%2330BAFF' result='t'/><feComposite in='t' in2='x' operator='in' result='s'/><feMorphology in='SourceAlpha' operator='dilate' radius='2' result='y'/><feGaussianBlur in='y' result='x' stdDeviation='80'/><feFlood flood-color='%2330BAFF' result='w'/><feComposite in='w' in2='x' operator='in' result='r'/><feMerge><feMergeNode in='v'/><feMergeNode in='s'/><feMergeNode in='r'/><feMergeNode in='SourceGraphic'/></feMerge></filter><mask id='c'><g filter='url(%23a)'><circle cx='0%' cy='0%' r='225' fill='%23FFF'/></g></mask></defs><g filter='url(%23a)'><circle cx='0%' cy='0%' r='235'/></g><g stroke='%23FFF' stroke-linecap='round' stroke-width='35' filter='url(%23b)' mask='url(%23c)'><line x1='-37.5%' x2='0%' y1='0%' y2='-37.5%'/><line x1='0%' x2='37.5%' y1='37.5%' y2='0%'/><line x1='18.75%' x2='18.75%' y1='18.75%' y2='-18.75%'/><line x1='18.75%' x2='-18.75%' y1='-18.75%' y2='-18.75%'/><line x1='-18.75%' x2='-18.75%' y1='-18.75%' y2='18.75%'/><line x1='-18.75%' x2='18.75%' y1='18.75%' y2='18.75%'/></g></svg>");
+              background-size: 'cover';
+              background-repeat: no-repeat;
+              overflow: hidden;
+          }
+
+          .InfLoader-Logo:hover {
+              background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-256 -256 512 512'%3E%3Cdefs%3E%3Cfilter id='a' width='400%25' height='400%25' x='-75%25' y='-75%25'%3E%3CfeGaussianBlur in='SourceGraphic' result='z' stdDeviation='8'/%3E%3CfeMerge%3E%3CfeMergeNode in='z'/%3E%3C/feMerge%3E%3C/filter%3E%3Cfilter id='b' width='400%25' height='400%25' x='-75%25' y='-75%25'%3E%3CfeMorphology in='SourceAlpha' operator='dilate' radius='1' result='y'/%3E%3CfeGaussianBlur in='y' result='x' stdDeviation='2'/%3E%3CfeFlood flood-color='%2330BAFF' result='w'/%3E%3CfeComposite in='w' in2='x' operator='in' result='v'/%3E%3CfeMorphology in='SourceAlpha' operator='dilate' radius='2' result='u'/%3E%3CfeGaussianBlur in='u' result='x' stdDeviation='12'/%3E%3CfeFlood flood-color='%2330BAFF' result='t'/%3E%3CfeComposite in='t' in2='x' operator='in' result='s'/%3E%3CfeMorphology in='SourceAlpha' operator='dilate' radius='2' result='y'/%3E%3CfeGaussianBlur in='y' result='x' stdDeviation='80'/%3E%3CfeFlood flood-color='%2330BAFF' result='w'/%3E%3CfeComposite in='w' in2='x' operator='in' result='r'/%3E%3CfeMerge%3E%3CfeMergeNode in='v'/%3E%3CfeMergeNode in='s'/%3E%3CfeMergeNode in='r'/%3E%3CfeMergeNode in='SourceGraphic'/%3E%3C/feMerge%3E%3C/filter%3E%3Cmask id='c'%3E%3Cg filter='url(%23a)'%3E%3Ccircle cx='0%25' cy='0%25' r='225' fill='%23FFF'/%3E%3C/g%3E%3C/mask%3E%3C/defs%3E%3Cg filter='url(%23a)'%3E%3Ccircle cx='0%25' cy='0%25' r='235'/%3E%3C/g%3E%3Cg stroke='%23FFF' stroke-linecap='round' stroke-width='35' filter='url(%23b)' mask='url(%23c)'%3E%3Cline x1='-37.5%25' x2='-12.5%25' y1='0%25' y2='-25%25'/%3E%3Cline x1='0%25' x2='25%25' y1='-37.5%25' y2='-12.5%25'/%3E%3Cline x1='37.5%25' x2='12.5%25' y1='0%25' y2='25%25'/%3E%3Cline x1='0%25' x2='-25%25' y1='37.5%25' y2='12.5%25'/%3E%3C/g%3E%3C/svg%3E%0A");
+              animation: spin 0.3s cubic-bezier(0.65, 0.05, 0.36, 1) infinite;
+              animation-delay: 0.25s;
+          }
+
+          @keyframes spin {
+              from {
+                  transform: rotate(90deg)
+              }
+
+              to {
+                  transform: rotate(0deg)
+              }
+          }
+
+          .InfLoader-ProgressWrap {
+              margin-top: .8em
+          }
+
+          .InfLoader-Progress {
+              width: 12em;
+              height: .4em;
+              background-color: #1f2946;
+              border-radius: 1em
+          }
+
+          .InfLoader-ProgressFill {
+              height: 100%;
+              border-radius: 1em;
+              max-width: 100%;
+              transition: width .25s ease-in-out;
+              display: block
+          }
+
+          .InfLoader-ProgressInf,
+          .InfLoader-ProgressProg {
+              box-shadow: inset 0 0 .05em .005em #fff, 0 0 .4em 0 #7282f9
+          }
+
+          .InfLoader-ProgressProg {
+              width: 0%;
+              background-color: #fff
+          }
+
+          .InfLoader-ProgressInf {
+              width: 100%;
+              background-size: 9em 1em;
+              background-repeat: repeat;
+              animation: rotate .125s linear infinite;
+              background-image: repeating-linear-gradient(25deg, rgba(31, 41, 70, 0) 0, rgba(31, 41, 70, 0) 0, #7282f9 1%, #fff 5%, #7282f9 9%, rgba(31, 41, 70, 0) 10%, rgba(31, 41, 70, 0) 10%)
+          }
+
+          .InfLoader-Status {
+              margin-top: .4em;
+              font-size: .7em
+          }
+
+          .InfLoader-TextWhite {
+              color: #fff;
+              text-shadow: 0 0 2px #fff
+          }
+
+          .InfLoader-TextBlue {
+              color: #06f;
+              text-shadow: 0 0 2px #50f
+          }
+
+          .InfLoader-TextGreen {
+              color: #a1ff00;
+              text-shadow: 0 0 2px #00ff8c
+          }
+
+          .InfLoader-TextYellow {
+              color: #fffb24;
+              text-shadow: 0 0 2px #ff8000
+          }
+
+          .InfLoader-TextRed {
+              color: #ff0040;
+              text-shadow: 0 0 2px #f01
+          }
+        </style>
+    </head>
+    <body onload="init();">
+        <!-- <video autoplay muted loop id="myVideo">
+            <source src="output.webm" type="video/mp4">
+        </video> -->
+        <div class="attends" id="attends" style="opacity:1;width: 100%;height: 100%;position: absolute;left: 0;height: 0;">
+            <div class="box-wrap">
+                <div class="notify-wrap">
+                    <div id="notify" class="box blurred-bg tinted" style="opacity:0;display:none;">
+                        <div class="content">
+                            <h1 class="unselectable heading">Infinity.Attends</h1>
+                            <div class="h-divider">
+                                <div class="shadow"></div>
+                                <div class="text unselectable" style=""><i id='notify-msg'></i></div>
+                            </div>
+                            <button type="button" id="notswlast" class="btn btn-primary btn-lg">OK</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="portal-wrap">
+                    <div id="portal" class="box blurred-bg tinted" style="opacity:0;display:none;">
+                        <div class="content">
+                            <!-- <div class="h-divider">
+                                <div class="shadow"></div>
+                                <div class="text unselectable"><i>New Members</i></div>
+                            </div>
+                            <div class="input-group mb-3 input-group-lg">
+                                <input id="invinp" type="text" class="form-control" placeholder="Enter Invitation Here" aria-label="Enter Invitation Here" aria-describedby="basic-addon2">
+                                <div class="input-group-append">
+                                    <button class="btn btn-primary btn-lg" type="button" id="subinvcode">Submit</button>
+                                </div>
+                            </div> -->
+                            <h1 class="unselectable heading">Infinity.Attends</h1>
+                            <div class="h-divider">
+                                <div class="shadow"></div>
+                            </div>
+                            <button type="button" id="signin" class="btn btn-primary btn-lg">Sign in</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="mbrlog-wrap">
+                    <div id="mbrlog" class="box blurred-bg tinted" style="opacity:0;display:none;">
+                        <div class="content">
+                            <h1 class="unselectable heading">Infinity.Attends</h1>
+                            <div class="h-divider">
+                                <div class="shadow"></div>
+                                <div class="text unselectable"><i>Sign in</i></div>
+                            </div>
+                            <div class="input-group mb-3 logusr">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                </div>
+                                <input style="font-size: 1.5em;" type="text" class="form-control form-control-warning" id="mbrid" placeholder="Email" aria-label="Email" aria-describedby="mbrid">
+                            </div>
+                            <div class="input-group mb-3 logpw">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-key"></i></span>
+                                </div>
+                                <input style="font-size: 1.5em;" type="password" class="form-control" id="mbrkey" placeholder="Password" aria-label="Password" aria-describedby="mbrkey">
+                            </div>
+                            <div class="btn-group mr-2" role="group" aria-label="Second group">
+                                <button type="button" id="gohome" class="btn btn-secondary btn-lg">Back</button>
+                                <button type="button" id="loginmbr" class="btn btn-primary btn-lg">Submit</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mbrreg-wrap">
+                    <div id="mbrreg" class="box blurred-bg tinted" style="opacity:0;display:none;">
+                        <div class="content">
+                            <h1 class="unselectable heading">Infinity.Attends</h1>
+                            <div class="h-divider">
+                                <div class="shadow"></div>
+                                <div class="text unselectable" style=""><i>Member Registration</i></div>
+                            </div>
+                            <div class="input-group mb-3 regusr">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                </div>
+                                <input style="font-size: 1.5em;" type="text" class="form-control" id="nmbrid" placeholder="Email" aria-label="Email" aria-describedby="nmbrid">
+                            </div>
+                            <div class="input-group mb-3 regpw">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-key"></i></span>
+                                </div>
+                                <input style="font-size: 1.5em;" type="password" class="form-control" id="nmbrkey" placeholder="Password" aria-label="Password" aria-describedby="nmbrkey">
+                            </div>
+                            <div class="input-group mb-3 regpw2">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-key"></i></span>
+                                </div>
+                                <input style="font-size: 1.5em;" type="password" class="form-control" id="nmbrkey2" placeholder="Verify Password" aria-label="Verify Password" aria-describedby="nmbrkey2">
+                            </div>
+                            <div class="btn-group mr-2" role="group" aria-label="Third group">
+                                <button type="button" id="gohome2" class="btn btn-secondary btn-lg">Back</button>
+                                <button type="button" id="submbrreg" class="btn btn-primary btn-lg">Submit</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mbratt-wrap">
+                    <div id="mbratt" class="box blurred-bg tinted" style="opacity:0;display:none;">
+                        <div class="content">
+                            <h1 class="unselectable heading">Infinity.Attends</h1>
+                            <div class="h-divider">
+                                <div class="shadow"></div>
+                                <div class="text unselectable"><i>Roster</i></div>
+                            </div>
+                            <div class="container-fluid" style="padding: 0;">
+                                <div class="pl-table">
+                                    <!-- <div class="pl-thead">
+                                        <div class="row">
+                                            <div class="col">Checked in</div>
+                                            <div class="col">Name</div>
+                                            <div class="col">Edit</div>
+                                        </div>
+                                    </div>
+                                    <div class="h-divider" style="margin-top: 0;">
+                                        <div class="shadow"></div>
+                                    </div> -->
+                                    <div id='attlist' class="pl-tbody">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="h-divider" style="margin-top: 0;">
+                                <div class="shadow"></div>
+                            </div>
+                            <div class="btn-group mr-2" role="group" aria-label="Third group">
+                                <button type="button" id="tmgr" class="btn btn-secondary btn-lg">Manage</button>
+                                <button type="button" id="subatt" class="btn btn-primary btn-lg">Submit</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mbrnfo-wrap">
+                    <div id="mbrnfo" class="box blurred-bg tinted" style="opacity:0;display:none;">
+                        <div class="content">
+                            <h1 class="unselectable heading">Infinity.Attends</h1>
+                            <div class="h-divider">
+                                <div class="shadow"></div>
+                                <div id="mbrnfo-nam" class="text unselectable"><i></i></div>
+                            </div>
+                            <div class="container-fluid" style="padding: 0;">
+                                <div class="pl-table">
+                                    <div id='mbrnfo-list' class="pl-tbody">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="h-divider" style="margin-top: 0;">
+                                <div class="shadow"></div>
+                            </div>
+                            <div class="btn-group mr-2" role="group" aria-label="Third group">
+                                <button type="button" id="swmbratt" class="btn btn-secondary btn-lg">Back</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mbrmgr-wrap">
+                    <div id="mbrmgr" class="box blurred-bg tinted" style="opacity:0;display:none;">
+                        <div class="content">
+                            <h1 class="unselectable heading">Infinity.Attends</h1>
+                            <div class="h-divider">
+                                <div class="shadow"></div>
+                                <div id="mbrmgr-nam" class="text unselectable"><i>Team Manager</i></div>
+                            </div>
+                            <div class="container-fluid" style="padding: 0;">
+                                <div class="pl-table">
+                                    <div id='mbrnfo-list' class="pl-tbody">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="h-divider" style="margin-top: 0;">
+                                <div class="shadow"></div>
+                            </div>
+                            <div class="btn-group mr-2" role="group" aria-label="Third group">
+                                <button type="button" id="subatt" class="btn btn-secondary btn-lg">Back</button>
+                                <button type="button" id="submbrmgr" class="btn btn-secondary btn-lg">Submit</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mbradd-wrap">
+                    <div id="mbradd" class="box blurred-bg tinted" style="opacity:0;display:none;">
+                        <div class="content">
+                            <h1 class="unselectable heading">Infinity.Attends</h1>
+                            <div class="h-divider">
+                                <div class="shadow"></div>
+                                <div id="mbradd-nam" class="text unselectable"><i>Add Team Member</i></div>
+                            </div>
+                            <div class="h-divider" style="margin-top: 0;">
+                                <div class="shadow"></div>
+                            </div>
+                            <div class="input-group mb-3 addmbr-nam">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                </div>
+                                <input style="font-size: 1.5em;" type="text" class="form-control" id="nmbrnam" placeholder="Name" aria-label="Name" aria-describedby="nmbrnam">
+                            </div>
+                            <div class="input-group mb-3 addmbr-pho">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-phone"></i></span>
+                                </div>
+                                <input style="font-size: 1.5em;" type="text" class="form-control" id="nmbrpho" placeholder="Phone Number" aria-label="Phone Number" aria-describedby="nmbrpho">
+                            </div>
+                            <div class="input-group mb-3 addmbr-eml">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                                </div>
+                                <input style="font-size: 1.5em;" type="text" class="form-control" id="nmbreml" placeholder="Email" aria-label="Email" aria-describedby="nmbreml">
+                            </div>
+                            <div class="input-group mb-3 addmbr-eid">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-id-badge"></i></span>
+                                </div>
+                                <input style="font-size: 1.5em;" type="text" class="form-control" id="nmbreid" placeholder="Employee ID" aria-label="Employee ID" aria-describedby="nmbreid">
+                            </div>
+                            <div class="input-group mb-3 addmbr-par">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-building"></i></span>
+                                </div>
+                                <select style="font-size: 1.5em;height: 2em;" class="custom-select" id="nmbrpar">
+                                    <option value="" hidden>Company</option>
+                                    <option value="ActionLink">ActionLink</option>
+                                    <option value="People Ready">People Ready</option>
+                                    <option value="Survey.com">Survey.com</option>
+                                    <option value="FLEX">FLEX</option>
+                                    <option value="IMPACT">IMPACT</option>
+                                    <option value="SASR">SASR</option>
+                                    <option value="Manpower">Manpower</option>
+                                    <option value="Atlantic Coast Merchandising">Atlantic Coast Merchandising</option>
+                                    <option value="CART Solutions">CART Solutions</option>
+                                    <option value="Shelf Level Retail">Shelf Level Retail</option>
+                                </select>
+                            </div>
+                            <div class="input-group mb-3 addmbr-tea">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-users"></i></span>
+                                </div>
+                                <select style="font-size: 1.5em;height: 2em;" class="custom-select" id="nmbrtea">
+                                    <option value="" hidden>Team</option>
+                                </select>
+                            </div>
+                            <div class="btn-group mr-2" role="group" aria-label="Third group">
+                                <button type="button" id="notswlast" class="btn btn-secondary btn-lg">Back</button>
+                                <button type="button" id="nmbrsub" class="btn btn-primary btn-lg">Submit</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+        <!-- <div id="InfLoader" class="InfLoader" style="opacity:1;">
+            <div id="InfLoader-Logo" class="InfLoader-Logo InfLogo"></div>
+            <div class="InfLoader-Text" style="font-size:1.2em;">HigherGroundsCandles</div>
+            <div style="margin-left:0em;padding-top:0.4em;font-size:0.6em;font-style: italic;" class="InfLoader-Text">Hosted by Infinity.Link</div>
+        </div> -->
+    </body>
+    <script type="text/javascript">
+        function copyToClipboard(element) {
+            var $temp = $("<input>");
+            $("body").append($temp);
+            $temp.val(element).select();
+            document.execCommand("copy");
+            $temp.remove();
+        }
+        var invc;
+        var swLast;
+        var user;
+        var team = [];
+        var boxHide = function(e) {
+            e.css({
+                transition: 'all 200ms ease-in-out'
+            });
+            e.attr('visible', false);
+            setTimeout(function() {
+                e.hide()
+            }, 125);
+        }
+        var boxShow = function(e) {
+            e.show();
+            e.css({
+                transition: 'all 200ms ease-in-out',
+                opacity: "1",
+                transform: "scale(1)"
+            });
+            e.attr('visible', true);
+        }
+        var hideUIs = function() {
+            $('.box').css({
+                "opacity": 0,
+                "display": "none"
+            });
+            // $('#mbrlog').css({
+            //     "opacity": 0,
+            //     "display": "none"
+            // });
+            // $('#mbrreg').css({
+            //     "opacity": 0,
+            //     "display": "none"
+            // });
+            // $('#portal').css({
+            //     "opacity": 0,
+            //     "display": "none"
+            // });
+            // $('#notify').css({
+            //     "opacity": 0,
+            //     "display": "none"
+            // });
+            // $('#mbrnfo').css({
+            //     "opacity": 0,
+            //     "display": "none"
+            // });
+        }
+        var swPortal = function() {
+            // Portal UI
+            hideUIs();
+            $("#invinp").val("");
+            // boxHide($('.mbrlog-wrap'));
+            // boxHide($('.mbrreg-wrap'));
+            // boxShow($('.portal-wrap'));
+            // $("#portal").fadeIn(250).delay(250).fadeIn(400);
+            $('#portal').css({
+                "opacity": 1,
+                "display": "flex"
+            });
+            swLast = swPortal;
+        }
+        var swMbrNfo = function() {
+            // Portal UI
+            hideUIs();
+            $('#mbrnfo').css({
+                "opacity": 1,
+                "display": "flex"
+            });
+        }
+        var swMbrAtt = function() {
+            // Portal UI
+            hideUIs();
+            console.log({
+                "GetTeam": {
+                    "Func": "GetTeam",
+                    "User": user
+                }
+            });
+            var posting = $.post('/', {
+                "Func": "GetTeam"
+            }).done(function(data) {
+                ret = JSON.parse(data);
+                console.log({
+                    "GetTeamCB": ret
+                });
+                if (ret['Result'] == 'Success') {
+                    $('#attlist').empty();
+                    $.each(ret['Payload'], function(k, v) {
+                        team[k] = v;
+                        $('#attlist').append('<div id="mbrent" class="row" data-mid="' + k + '"><div class="col pl-tcol"><input ' + (v['InRoster'] == "True" ? 'checked' : '') +
+                            ' tabindex="-1" type="checkbox" class="form-check-input" id="rosterchk" data-mid="' + k + '""></div><div class="col pl-tcol" style="flex-grow: 2;"><span id="mbrnam">' + v['Name'] +
+                            '</span></div><div class="col pl-tcol"><div class="btn-group mr-2" role="group" aria-label="Third group"><button type="button" class="btn btn-primary" id="midcopy" data-mid="' + k +
+                            '"><span class="fas fa-copy" aria-hidden="true"></span></button><button type="button" class="btn btn-primary" id="midcall" data-mid="' + k +
+                            '"><span class="fas fa-phone" aria-hidden="true"></span></button><button type="button" class="btn btn-primary" id="midtxt" data-mid="' + k +
+                            '"><span class="fas fa-comment-alt" aria-hidden="true"></span></button><button type="button" class="btn btn-primary" id="mideml" data-mid="' + k +
+                            '"><span class="fas fa-envelope" aria-hidden="true"></span></button><button type="button" class="btn btn-primary" id="midnfo" data-mid="' + k +
+                            '"><span class="fas fa-info" aria-hidden="true"></span></button></div></div></div>');
+                    });
+                }
+            });
+            $('#mbratt').css({
+                "opacity": 1,
+                "display": "flex"
+            });
+            swLast = swMbrAtt;
+        }
+        $('#subatt').click(function() {
+            roster = []
+            $('#attlist #rosterchk:checked').each(function(o) {
+                roster.push($(this).data('mid'));
+            });
+            console.log({
+                "GetTeam": {
+                    "Func": "TeamRoster",
+                    "Roster": JSON.stringify(roster)
+                }
+            });
+            var posting = $.post('/', {
+                "Func": "TeamRoster",
+                "Roster": JSON.stringify(roster)
+            }).done(function(data) {
+                ret = JSON.parse(data);
+                console.log({
+                    "TeamRosterCB": ret
+                });
+                if (ret['Result'] == 'Success') {
+                    swNotify('Roster Submitted', 'green');
+                } else if (ret['Result'] == 'Fail') {
+                    swNotify(ret['Reason'], 'red');
+                }
+            });
+        });
+        $('#nmbrsub').click(function() {
+            var n = $('#nmbrnam').val();
+            var ph = $('#nmbrpho').val();
+            var em = $('#nmbreml').val();
+            var ei = $('#nmbreid').val();
+            var pa = $('#nmbrpar').val();
+            var t = $('#nmbrtea').val();
+            $(".regpwerr").remove();
+            var hasError = false;
+            if (n == '') {
+                $(".addmbr-nam").before('<span class="regpwerr">Please enter your name.</span>');
+                return false;
+            }
+            if (pa == '') {
+                $(".addmbr-par").before('<span class="regpwerr">Please select a company.</span>');
+                return false;
+            }
+            if (t == '') {
+                $(".addmbr-tea").before('<span class="regpwerr">Please select a team.</span>');
+                return false;
+            }
+            console.log($(this).text());
+            console.log({
+                "AddMbr": {
+                    "Func": "AddMbr",
+                    "Name": n,
+                    "Phone": ph,
+                    "Email": em,
+                    "EID": ei,
+                    "Parent": pa,
+                    "Team": t
+                }
+            });
+            var posting = $.post('/', {
+                "Func": "AddMbr",
+                "Name": n,
+                "Phone": ph,
+                "Email": em,
+                "EID": ei,
+                "Parent": pa,
+                "Team": t
+            }).done(function(data) {
+                ret = JSON.parse(data);
+                console.log({
+                    "AddMbrCB": ret
+                });
+                if (ret['Result'] == 'Success') {
+                    swNotify('Member Added', 'green');
+                    swLast = swMbrAtt;
+                } else if (ret['Result'] == 'Fail') {
+                    swLast = swMbrAdd;
+                    swNotify(ret['Reason'], 'red');
+                }
+            });
+        });
+        var swMbrReg = function() {
+            // Member Registration UI
+            hideUIs();
+            // boxHide($('.portal-wrap'));
+            // boxHide($('.mbrlog-wrap'));
+            // boxShow($('.mbrreg-wrap'));
+            $('#mbrreg').css({
+                "opacity": 1,
+                "display": "flex"
+            });
+            $('#nmbrid').val('');
+            $('#nmbrkey').val('');
+            $('#nmbrkey2').val('');
+            swLast = swMbrReg;
+        }
+        var swMbrLogin = function() {
+            // Member Login UI
+            hideUIs();
+            $('#mbrid').val('');
+            $('#mbrkey').val('');
+            $('#mbrlog').css({
+                "opacity": 1,
+                "display": "flex"
+            });
+            // boxHide($('.portal-wrap'));
+            // boxHide($('.mbrreg-wrap'));
+            // boxShow($('.mbrlog-wrap'));
+            swLast = swMbrLogin;
+        }
+        var swInvite = function() {
+            // Generate Invitation UI
+            // hideUIs();
+        }
+        var swMbrAdd = function() {
+            hideUIs();
+            $('#nmbrnam').val('');
+            $('#nmbrpho').val('');
+            $('#nmbreml').val('');
+            $('#nmbreid').val('');
+            // $('#nmbrpar').not(':first').empty();
+            $("#nmbrpar").find("option").eq(0).prop('selected', true);
+            $("#nmbrtea").find("option").eq(0).prop('selected', true);
+            $('#nmbrtea').find("option").not("[hidden]").remove();
+            var posting = $.post('/', {
+                "Func": "GetTeams"
+            }).done(function(data) {
+                ret = JSON.parse(data);
+                console.log({
+                    "GetTeamsCB": ret
+                });
+                if (ret['Result'] == 'Success') {
+                    $.each(ret['Payload'], function(k, v) {
+                        $('#nmbrtea').append('<option value="' + k + '">' + v + '</option>')
+                    });
+                }
+            });
+            $(".regpwerr").remove();
+            $('#mbradd').css({
+                "opacity": 1,
+                "display": "flex"
+            });
+        }
+        var swNotify = function(msg, color) {
+            // Notify UI
+            hideUIs();
+            $('#notify-msg').html(msg);
+            if (color == 'red') {
+                $('#notify-msg').css({
+                    "color": "#ff9b61",
+                    "text-shadow": "0 0 2px #ff0000",
+                    "font-weight": 600
+                });
+            } else if (color == 'green') {
+                $('#notify-msg').css({
+                    "color": "#61ff83",
+                    "text-shadow": "0 0 2px #d5ff00",
+                    "font-weight": 600
+                });
+            }
+            $('#notify').css({
+                "opacity": 1,
+                "display": "flex"
+            });
+        }
+        $("#subinvcode").click(function() {
+            var inv = $("#invinp").val();
+            if (inv == '') {
+                return;
+            }
+            console.log({
+                "ValidateInvite": {
+                    "Func": "ValidateInvite",
+                    "Code": inv
+                }
+            });
+            var posting = $.post('/', {
+                "Func": "ValidateInvite",
+                "Code": inv
+            }).done(function(data) {
+                ret = JSON.parse(data);
+                console.log({
+                    "ValidateInviteCB": ret
+                });
+                if (ret['Result'] == 'Success') {
+                    invc = inv;
+                    swMbrReg();
+                } else if (ret['Result'] == 'Fail') {
+                    swNotify('Invalid Invitation', 'red');
+                    // Failed
+                }
+            });
+        });
+        $("#signin").click(function() {
+            swMbrLogin();
+        });
+        $("#notswlast,#swmbratt").click(function() {
+            swLast();
+        });
+        $("#loginmbr").click(function() {
+            var u = $('#mbrid').val();
+            var k = $('#mbrkey').val();
+            $(".regpwerr").hide();
+            if (u == '') {
+                $(".logusr").before('<span class="regpwerr">Please enter your email.</span>');
+                return false;
+            }
+            if (k == '') {
+                $(".logpw").before('<span class="regpwerr">Please enter a password.</span>');
+                return false;
+            };
+            k = CryptoJS.SHA256(k).toString(CryptoJS.enc.Base64);
+            console.log({
+                "AuthCB": {
+                    "Func": "Auth",
+                    "User": u,
+                    "Auth": k
+                }
+            });
+            var posting = $.post('/', {
+                "Func": "Auth",
+                "User": u,
+                "Auth": k
+            }).done(function(data) {
+                ret = JSON.parse(data);
+                console.log({
+                    "AuthCB": ret
+                });
+                if (ret['Result'] == 'Success') {
+                    swNotify('You are now logged in!', 'green');
+                    //swLast = swBlog;
+                    swLast = swMbrAtt;
+                } else if (ret['Result'] == 'Fail') {
+                    swNotify(ret['Reason'], 'red');
+                }
+            });
+            return;
+        });
+        $("#submbrreg").click(function() {
+            var u = $('#nmbrid').val();
+            var k = $('#nmbrkey').val();
+            var k2 = $('#nmbrkey2').val();
+            $(".regpwerr").hide();
+            var hasError = false;
+            if (u == '') {
+                $(".regusr").before('<span class="regpwerr">Please enter your email.</span>');
+                return false;
+            }
+            if (k == '') {
+                $(".regpw").before('<span class="regpwerr">Please enter a password.</span>');
+                hasError = true;
+            } else if (k2 == '') {
+                $(".regpw2").before('<span class="regpwerr">Please re-enter your password.</span>');
+                hasError = true;
+            } else if (k != k2) {
+                $(".regpw2").before('<span class="regpwerr">Passwords do not match.</span>');
+                hasError = true;
+            }
+            if (hasError == true) {
+                return false;
+            }
+            k = CryptoJS.SHA256(k).toString(CryptoJS.enc.Base64);
+            console.log($(this).text());
+            console.log({
+                "RegCB": {
+                    "Func": "Reg",
+                    "Invite": invc,
+                    "User": u,
+                    "Auth": k
+                }
+            });
+            var posting = $.post('/', {
+                "Func": "Reg",
+                "Invite": invc,
+                "User": u,
+                "Auth": k
+            }).done(function(data) {
+                ret = JSON.parse(data);
+                console.log({
+                    "RegCB": ret
+                });
+                if (ret['Result'] == 'Success') {
+                    swNotify('Member Registered', 'green');
+                    swLast = swMbrLogin;
+                } else if (ret['Result'] == 'Fail') {
+                    swNotify(ret['Reason'], 'red');
+                }
+            });
+        });
+        $('#tmgr').click(function() {
+            // swNotify('Not yet Implemented', 'red');
+            swMbrAdd();
+        });
+        $("#gohome,#gohome2").click(function() {
+            swPortal();
+        });
+        $('#attlist').on('click', '#midcopy', function() {
+            te = team[$(this).closest('#mbrent').data('mid')];
+            if (typeof te !== 'undefined') {
+                if ('Name' in te) {
+                    copyToClipboard(te['Name']);
+                }
+            }
+        });
+        $('#attlist').on('click', '#midcall', function() {
+            te = team[$(this).closest('#mbrent').data('mid')];
+            if (typeof te !== 'undefined') {
+                if ('Phone' in te) {
+                    window.location = 'tel:' + te['Phone'];
+                }
+            }
+        });
+        $('#attlist').on('click', '#midtxt', function() {
+            te = team[$(this).closest('#mbrent').data('mid')];
+            if (typeof te !== 'undefined') {
+                if ('Phone' in te) {
+                    window.location = 'sms:' + te['Phone'];
+                }
+            }
+        });
+        $('#attlist').on('click', '#mideml', function() {
+            te = team[$(this).closest('#mbrent').data('mid')];
+            if (typeof te !== 'undefined') {
+                if ('Email' in te) {
+                    window.location = 'mailto:' + te['Email'];
+                }
+            }
+        });
+        $('#attlist').on('click', '#midnfo', function() {
+            // swLast = swMbrAtt;
+            te = team[$(this).closest('#mbrent').data('mid')];
+            console.log(te);
+            if (typeof te !== 'undefined') {
+                $('#mbrnfo-nam i').html(te['Name']);
+                $('#mbrnfo-list').empty();
+                $.each(te, function(k, v) {
+                    if (k !== 'Name' && k !== 'InRoster') {
+                        $('#mbrnfo-list').append('<div id="mbrnfo-ent" class="row"><div class="col pl-tcol"><span id="mbrnam">' + k + '</span></div><div class="col pl-tcol" style="flex-grow: 1;"><span id="mbrnam">' + v +
+                            '</span></div></div>');
+                    }
+                });
+            }
+            swMbrNfo();
+        });
+        // $('#midnfo').live("click", function() {
+        //     swNotify('Not yet Implemented', 'red');
+        // });
+        // boxHide($('.portal-wrap'));
+        // boxHide($('.mbrreg-wrap'));
+        // boxHide($('.mbrlog-wrap'));
+        function init() {
+            // document.getElementById("attends").style.opacity = "1";
+            // document.getElementById("InfLoader").style.opacity = "0";
+            // document.getElementById("InfLoader-Logo").onclick = function() {
+            // window.location.href = "//infinitycommunicationsgateway.net/";
+            // };
+            // boxShow($('.portal-wrap'));
+            var posting = $.post('/', {
+                "Func": "CheckSess",
+            }).done(function(data) {
+                if (data == '') {
+                    swPortal();
+                    return;
+                }
+                ret = JSON.parse(data);
+                console.log({
+                    "CheckSessCB": ret
+                });
+                console.log(ret['Result'])
+                if (ret['Result'] == 'True') {
+                    swMbrAtt();
+                } else if (ret['Result'] == 'False') {
+                    swPortal();
+                }
+            });
+        }
+    </script>
+</html>

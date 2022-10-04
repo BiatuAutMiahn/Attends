@@ -1,0 +1,128 @@
+@keyframes rotate {
+    to {
+        background-position: 1.1em 0
+    }
+}
+
+.InfLoader,
+body {
+    width: 100%;
+    height: 100%;
+    background-color: #000
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    font-size: 1em;
+    font-family: 'Inconsolata', monospace;
+    color: #fff;
+    text-shadow: 0 0 0.4em #fff
+}
+
+.InfLoader {
+    /* pointer-events: none; */
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    flex-direction: column;
+    display: block;
+    transition: opacity 1s ease-in-out
+}
+
+.InfLoader-Logo {
+    transition: opacity .25s ease-in-out, max-height .25s ease-in-out, background-image .25s ease-in-out;
+    width: 12em;
+    height: 12em;
+    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-256 -256 512 512'><defs><filter id='a' width='400%' height='400%' x='-75%' y='-75%'><feGaussianBlur in='SourceGraphic' result='z' stdDeviation='8'/><feMerge><feMergeNode in='z'/></feMerge></filter><filter id='b' width='400%' height='400%' x='-75%' y='-75%'><feMorphology in='SourceAlpha' operator='dilate' radius='1' result='y'/><feGaussianBlur in='y' result='x' stdDeviation='2'/><feFlood flood-color='%2330BAFF' result='w'/><feComposite in='w' in2='x' operator='in' result='v'/><feMorphology in='SourceAlpha' operator='dilate' radius='2' result='u'/><feGaussianBlur in='u' result='x' stdDeviation='12'/><feFlood flood-color='%2330BAFF' result='t'/><feComposite in='t' in2='x' operator='in' result='s'/><feMorphology in='SourceAlpha' operator='dilate' radius='2' result='y'/><feGaussianBlur in='y' result='x' stdDeviation='80'/><feFlood flood-color='%2330BAFF' result='w'/><feComposite in='w' in2='x' operator='in' result='r'/><feMerge><feMergeNode in='v'/><feMergeNode in='s'/><feMergeNode in='r'/><feMergeNode in='SourceGraphic'/></feMerge></filter><mask id='c'><g filter='url(%23a)'><circle cx='0%' cy='0%' r='225' fill='%23FFF'/></g></mask></defs><g filter='url(%23a)'><circle cx='0%' cy='0%' r='235'/></g><g stroke='%23FFF' stroke-linecap='round' stroke-width='35' filter='url(%23b)' mask='url(%23c)'><line x1='-37.5%' x2='0%' y1='0%' y2='-37.5%'/><line x1='0%' x2='37.5%' y1='37.5%' y2='0%'/><line x1='18.75%' x2='18.75%' y1='18.75%' y2='-18.75%'/><line x1='18.75%' x2='-18.75%' y1='-18.75%' y2='-18.75%'/><line x1='-18.75%' x2='-18.75%' y1='-18.75%' y2='18.75%'/><line x1='-18.75%' x2='18.75%' y1='18.75%' y2='18.75%'/></g></svg>");
+    background-size: 'cover';
+    background-repeat: no-repeat;
+    overflow: hidden;
+}
+
+.InfLoader-Logo:hover {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-256 -256 512 512'%3E%3Cdefs%3E%3Cfilter id='a' width='400%25' height='400%25' x='-75%25' y='-75%25'%3E%3CfeGaussianBlur in='SourceGraphic' result='z' stdDeviation='8'/%3E%3CfeMerge%3E%3CfeMergeNode in='z'/%3E%3C/feMerge%3E%3C/filter%3E%3Cfilter id='b' width='400%25' height='400%25' x='-75%25' y='-75%25'%3E%3CfeMorphology in='SourceAlpha' operator='dilate' radius='1' result='y'/%3E%3CfeGaussianBlur in='y' result='x' stdDeviation='2'/%3E%3CfeFlood flood-color='%2330BAFF' result='w'/%3E%3CfeComposite in='w' in2='x' operator='in' result='v'/%3E%3CfeMorphology in='SourceAlpha' operator='dilate' radius='2' result='u'/%3E%3CfeGaussianBlur in='u' result='x' stdDeviation='12'/%3E%3CfeFlood flood-color='%2330BAFF' result='t'/%3E%3CfeComposite in='t' in2='x' operator='in' result='s'/%3E%3CfeMorphology in='SourceAlpha' operator='dilate' radius='2' result='y'/%3E%3CfeGaussianBlur in='y' result='x' stdDeviation='80'/%3E%3CfeFlood flood-color='%2330BAFF' result='w'/%3E%3CfeComposite in='w' in2='x' operator='in' result='r'/%3E%3CfeMerge%3E%3CfeMergeNode in='v'/%3E%3CfeMergeNode in='s'/%3E%3CfeMergeNode in='r'/%3E%3CfeMergeNode in='SourceGraphic'/%3E%3C/feMerge%3E%3C/filter%3E%3Cmask id='c'%3E%3Cg filter='url(%23a)'%3E%3Ccircle cx='0%25' cy='0%25' r='225' fill='%23FFF'/%3E%3C/g%3E%3C/mask%3E%3C/defs%3E%3Cg filter='url(%23a)'%3E%3Ccircle cx='0%25' cy='0%25' r='235'/%3E%3C/g%3E%3Cg stroke='%23FFF' stroke-linecap='round' stroke-width='35' filter='url(%23b)' mask='url(%23c)'%3E%3Cline x1='-37.5%25' x2='-12.5%25' y1='0%25' y2='-25%25'/%3E%3Cline x1='0%25' x2='25%25' y1='-37.5%25' y2='-12.5%25'/%3E%3Cline x1='37.5%25' x2='12.5%25' y1='0%25' y2='25%25'/%3E%3Cline x1='0%25' x2='-25%25' y1='37.5%25' y2='12.5%25'/%3E%3C/g%3E%3C/svg%3E%0A");
+    animation: spin 0.3s cubic-bezier(0.65, 0.05, 0.36, 1) infinite;
+    animation-delay: 0.25s;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(90deg)
+    }
+
+    to {
+        transform: rotate(0deg)
+    }
+}
+
+.InfLoader-ProgressWrap {
+    margin-top: .8em
+}
+
+.InfLoader-Progress {
+    width: 12em;
+    height: .4em;
+    background-color: #1f2946;
+    border-radius: 1em
+}
+
+.InfLoader-ProgressFill {
+    height: 100%;
+    border-radius: 1em;
+    max-width: 100%;
+    transition: width .25s ease-in-out;
+    display: block
+}
+
+.InfLoader-ProgressInf,
+.InfLoader-ProgressProg {
+    box-shadow: inset 0 0 .05em .005em #fff, 0 0 .4em 0 #7282f9
+}
+
+.InfLoader-ProgressProg {
+    width: 0%;
+    background-color: #fff
+}
+
+.InfLoader-ProgressInf {
+    width: 100%;
+    background-size: 9em 1em;
+    background-repeat: repeat;
+    animation: rotate .125s linear infinite;
+    background-image: repeating-linear-gradient(25deg, rgba(31, 41, 70, 0) 0, rgba(31, 41, 70, 0) 0, #7282f9 1%, #fff 5%, #7282f9 9%, rgba(31, 41, 70, 0) 10%, rgba(31, 41, 70, 0) 10%)
+}
+
+.InfLoader-Status {
+    margin-top: .4em;
+    font-size: .7em
+}
+
+.InfLoader-TextWhite {
+    color: #fff;
+    text-shadow: 0 0 2px #fff
+}
+
+.InfLoader-TextBlue {
+    color: #06f;
+    text-shadow: 0 0 2px #50f
+}
+
+.InfLoader-TextGreen {
+    color: #a1ff00;
+    text-shadow: 0 0 2px #00ff8c
+}
+
+.InfLoader-TextYellow {
+    color: #fffb24;
+    text-shadow: 0 0 2px #ff8000
+}
+
+.InfLoader-TextRed {
+    color: #ff0040;
+    text-shadow: 0 0 2px #f01
+}
